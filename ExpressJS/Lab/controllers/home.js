@@ -5,7 +5,7 @@ module.exports.index = (req, res) => {
     let queryData = req.query;
     let products = [];
 
-    Product.find().populate('category').then((products) => {
+    Product.find({buyer: null}).populate('category').then((products) => {
       if(queryData.query){
         products = products.filter(
           product => product.name.toLowerCase()

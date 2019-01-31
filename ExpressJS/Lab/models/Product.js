@@ -11,8 +11,9 @@ const productSchema = new mongoose.Schema({
     default: 0
   },
   image: {type: String},
-  category: {type: Schema.Types.ObjectId, ref: 'Category'},
-  isBought: {type: Boolean, default: false}
+  creator: { type: Schema.Types.ObjectId, ref: 'User', required: true},
+  buyer: { type: Schema.Types.ObjectId, ref: 'User'},
+  category: {type: Schema.Types.ObjectId, ref: 'Category', required: true}
 });
 
 const Product = mongoose.model('Product', productSchema);
