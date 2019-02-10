@@ -17,5 +17,29 @@ userSchema.method({
 });
 
 const User = mongoose.model('User', userSchema);
+<<<<<<< HEAD
 // TODO: Create an admin at initialization here
+=======
+
+User.seedAdminUser = async () => {
+  try{
+    let users = await User.find();
+    if(users.length >0){
+      return;
+    }
+
+    const salt = encryption.generateSalt();
+    const hashedPass = encryption.generateHashedPassword(salt,'Admin');
+    return User.create({
+      username: 'Admin',
+      salt,
+      hashedPass,
+      roles: ['Admin'],
+    })
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+>>>>>>> a530bef6a0f1863842e254556e0c8259ea06166f
 module.exports = User;

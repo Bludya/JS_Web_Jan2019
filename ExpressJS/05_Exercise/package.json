@@ -5,7 +5,11 @@
   "main": "index.js",
   "engine": ">=7.6",
   "scripts": {
+<<<<<<< HEAD
     "start": "node index.js",
+=======
+    "start": "nodemon index.js",
+>>>>>>> a530bef6a0f1863842e254556e0c8259ea06166f
     "debug": "nodemon --inspect index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
